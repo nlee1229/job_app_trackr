@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const JobSchema = new mongoose.Schema({
+const JobSchema = new Schema({
     companyName: {
         type: String
     },
@@ -14,7 +14,7 @@ const JobSchema = new mongoose.Schema({
         type: String
     },
     location: {
-        type: String, 
+        type: String,
     },
     jobLevel: {
         type: String
@@ -24,7 +24,7 @@ const JobSchema = new mongoose.Schema({
     },
     companyDescription: {
         type: String
-    }, 
+    },
     notes: {
         type: String
     },
@@ -37,8 +37,17 @@ const JobSchema = new mongoose.Schema({
     status: {
         type: String
     }
-}, {timestamps: true});
+}, { timestamps: true });
+
+const User = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
+
+    jobs: [JobSchema],
+}, { timestamps: true })
 
 
-const Rental = mongoose.model('Job', JobSchema); // collection will be Job
-module.exports = Rental;
+module.exports = model('User', User);
+
