@@ -19,6 +19,7 @@ const Dashboard = () => {
         {/* since each element has a jobs array, we must map over the jobs as well */}
             {users.map((user, idx) => (
                 <div key ={idx}>
+                    <hr/>
                     <h1>{user.username}</h1>
                     {user.jobs.map((c, i) => (
                         <div key={i}>
@@ -26,7 +27,7 @@ const Dashboard = () => {
                             <h3>{c.jobTitle}</h3>
                             <h3>{c.dateApplied}</h3>
                             <h3>{c.location}</h3>
-                            <hr/>
+                          
                         </div>
                     ))}
                 </div>
