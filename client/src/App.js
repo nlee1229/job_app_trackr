@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Dashboard path="/dashboard"/>
+        <Dashboard path="/dashboard" />
+        <Redirect from="/" to="/dashboard" noThrow />
       </Router>
     </div>
   );
